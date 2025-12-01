@@ -18,7 +18,7 @@ RUN pip install --no-cache-dir -r requirements.txt
 COPY . .
 
 # Collect static files
-RUN python manage.py collectstatic --noinst
+RUN python manage.py collectstatic --noinput
 
 # Run migrations and start server
 CMD ["gunicorn", "--bind", "0.0.0.0:8000", "--workers", "3", "gis_admin.wsgi:application"]
